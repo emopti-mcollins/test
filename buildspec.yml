@@ -50,7 +50,7 @@ phases:
 
   build:
     commands:
-    
+
       # Build our go application
       - go build -v -o main $GO_BUILD_LIST
 
@@ -60,7 +60,6 @@ phases:
       #- echo Generating build-info.json ...
       - echo "CODEBUILD_RESOLVED_SOURCE_VERSION: $CODEBUILD_RESOLVED_SOURCE_VERSION"
       - echo "CODEBUILD_SOURCE_VERSION: $CODEBUILD_SOURCE_VERSION"
-
 
       #- echo -e "{\"codeBuildId\":\""$CODEBUILD_BUILD_ID"\",\"buildNumber\":\""$BUILD_NUMBER"\", \"buildTimestamp\":\""$(date -u +'%Y-%m-%dT%H:%M:%SZ')"\", \"sourceType\":\"GIT\", \"sourceVersion\":\""$GIT_COMMIT"\", \"sourceRepoUrl\":\""$GIT_URL"\", \"gitBranch\":\""$GIT_BRANCH"\" }" > ${CODEBUILD_SRC_DIR}/build-info.json
 
