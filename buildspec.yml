@@ -54,10 +54,10 @@ phases:
       # Build our go application
       - go build -v -o main $GO_BUILD_LIST
 
-      # Package our application with AWS SAM
-      - aws cloudformation package --template-file cfn-template.yaml --s3-bucket ${S3_BUCKET} --s3-prefix cfn/${PACKAGE}/packaged --output-template-file cfn-template-packaged.yaml
+      - env
 
       - echo Generating build-info.json ...
+
       - echo -e "{\"codeBuildId\":\""$CODEBUILD_BUILD_ID"\",\"buildNumber\":\""$BUILD_NUMBER"\", \"buildTimestamp\":\""$(date -u +'%Y-%m-%dT%H:%M:%SZ')"\", \"sourceType\":\"GIT\", \"sourceVersion\":\""$GIT_COMMIT"\", \"sourceRepoUrl\":\""$GIT_URL"\", \"gitBranch\":\""$GIT_BRANCH"\" }" > ${CODEBUILD_SRC_DIR}/build-info.json
 
 artifacts:
